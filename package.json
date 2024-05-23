@@ -1,15 +1,33 @@
 {
   "name": "map-frontend",
+  "url": "https://github.com/Credit-is-First/react-tailwind-eslint-typescript-template",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Credit-is-First/react-tailwind-eslint-typescript-template.git"
+  },
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "typescript",
+    "eslint",
+    "prettier",
+    "simple-import-sort",
+    "husky",
+    "lint-staged"
+  ],
+  "author": {
+    "name": "Credit First",
+    "email": "credit.first@gunthy.org"
+  },
   "engines": {
-    "node": "18.18.1"
+    "node": "^18.18.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && rm -rf ../backend-project/public/* && (mv build/* ../backend-project/public || move build/* ../backend-project/public) && rm -rf build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
