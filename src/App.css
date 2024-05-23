@@ -1,0 +1,103 @@
+:root {
+  --gradient: linear-gradient(
+    -93.09deg,
+    rgba(255, 200, 61, 0.55) 10.09%,
+    rgba(255, 200, 61, 0.7) 38.26%,
+    rgba(255, 200, 61, 0.9) 68.96%,
+    rgb(255, 200, 61) 94.18%
+  );
+}
+
+.gradient-border {
+  --b: 3px;
+  padding: calc(var(--b) * 2);
+  border-radius: inherit;
+}
+
+.gradient-border:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: var(--b);
+  border-radius: inherit;
+  background: var(--gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient-bottom-border,
+.gradient-top-border {
+  background-image: var(--gradient);
+  background-position: bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.gradient-top-border {
+  background-position: top;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.animate-save-changes {
+  animation: 0.5s blinker linear infinite;
+  -webkit-animation: 0.5s blinker linear infinite;
+  -moz-animation: 0.5s blinker linear infinite;
+}
+
+@-moz-keyframes blinker {
+  0% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 0.5;
+    scale: 1;
+  }
+}
+
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 0.5;
+    scale: 1;
+  }
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 0.5;
+    scale: 1;
+  }
+}

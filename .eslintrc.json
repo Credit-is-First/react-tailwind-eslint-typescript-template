@@ -1,0 +1,122 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "unused-imports"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
+
+    // #region  //*=========== Unused Import ===========
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // #endregion  //*======== Unused Import ===========
+
+    // #region  //*=========== Import Sort ===========
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // ext library & side effect imports
+          ["^react", "^@?\\w", "^\\u0000"],
+          // {s}css files
+          ["^.+\\.s?css$"],
+          // Lib and hooks
+          ["^src/libs", "^src/hooks", "^src/helpers"],
+          // components
+          ["^src/providers", "^src/layouts", "^src/components", "^src/pages"],
+          // zustand store
+          ["^src/store"],
+          // static data
+          ["^src/assets"],
+          // Other imports
+          ["^src/"],
+          // relative paths up until 3 level
+          [
+            "^\\./?$",
+            "^\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\./\\.\\.(?!/?$)"
+          ],
+          ["^src/types"],
+          // other that didnt fit in
+          ["^"]
+        ]
+      }
+    ],
+    // #endregion  //*======== Import Sort ===========
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "18.2.0"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["react-app-env.d.ts"],
+      "rules": {
+        "spaced-comment": "off"
+      }
+    },
+    {
+      "files": ["**/*.json"],
+      "rules": {
+        "quotes": "off"
+      }
+    }
+  ],
+  "globals": {
+    "React": true,
+    "JSX": true
+  }
+}
