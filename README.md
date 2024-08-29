@@ -1,4 +1,4 @@
-# Gunbot Monitor
+# react-tailwind-eslint-typescript-template
 
 ## Available Scripts
 
